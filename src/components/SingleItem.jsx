@@ -1,7 +1,9 @@
+import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
+// eslint-disable-next-line no-unused-vars
 const SingleItem = ({ _id, name, image, banner, artist, idPath }) => {
   return (
     <Link to={`${idPath}/${_id}`} className="single-item">
@@ -26,6 +28,16 @@ const SingleItem = ({ _id, name, image, banner, artist, idPath }) => {
       </div>
     </Link>
   );
+};
+
+// Adiciona a validação de tipos para evitar erros no ESLint
+SingleItem.propTypes = {
+  _id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  banner: PropTypes.string, // Opcional
+  artist: PropTypes.string, // Opcional, tem um fallback "Artista"
+  idPath: PropTypes.string.isRequired,
 };
 
 export default SingleItem;

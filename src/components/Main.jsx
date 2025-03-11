@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import ItemList from "./ItemList";
 import { artistArray } from "../assets/database/artists";
 import { songsArray } from "../assets/database/songs";
@@ -32,6 +33,11 @@ const Main = ({ type }) => {
       )}
     </div>
   );
+};
+
+// Validação de tipos para evitar erros no ESLint
+Main.propTypes = {
+  type: PropTypes.string, // 'type' pode ser uma string e é opcional
 };
 
 export default Main;

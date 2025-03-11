@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCirclePlay,
@@ -41,7 +42,6 @@ const Player = ({
 
   const playPause = () => {
     isPlaying ? audioPlayer.current.pause() : audioPlayer.current.play();
-
     setIsPlaying(!isPlaying);
   };
 
@@ -90,6 +90,14 @@ const Player = ({
       <audio ref={audioPlayer} src={audio}></audio>
     </div>
   );
+};
+
+// Adiciona validação de tipos para evitar erros no ESLint
+Player.propTypes = {
+  duration: PropTypes.string.isRequired, // Duração da música em formato "mm:ss"
+  randomIdFromArtist: PropTypes.string.isRequired, // ID da música anterior
+  randomId2FromArtist: PropTypes.string.isRequired, // ID da próxima música
+  audio: PropTypes.string.isRequired, // URL do arquivo de áudio
 };
 
 export default Player;

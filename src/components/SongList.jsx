@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import SongItem from "./SongItem";
 import { useState } from "react";
 
@@ -22,6 +23,20 @@ const SongList = ({ songsArray }) => {
       </p>
     </div>
   );
+};
+
+// Definição de prop-types
+SongList.propTypes = {
+  songsArray: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      duration: PropTypes.string.isRequired,
+      artist: PropTypes.string,
+      audio: PropTypes.string,
+    })
+  ).isRequired,
 };
 
 export default SongList;
